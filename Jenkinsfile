@@ -22,12 +22,10 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-        
-        post  {
+    }
+    post  {
             always {
                 archiveArtifacts artifacts: '**/target/*.war', onlyIfSuccessful: true
             }
         }
-
-    }
 }
